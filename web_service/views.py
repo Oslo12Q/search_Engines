@@ -49,7 +49,7 @@ def search_hospital_dict(request):
             return get_json_response(request, dict(status='error', message='only POST method supported.', data=None))
     hospital_idx_id = request.POST.get('hospital_idx_id',None)
     if not hospital_idx_id:
-        return get_json_response(request, dict(status='error', message='test_hospital_name not found.', data=None))
+        return get_json_response(request, dict(status='error', message='hospital_idx_id not found.', data=None))
     
     his_list =[]
     hospital_dict = MedicalTestHospital.objects.filter(hospital_idx_id = hospital_idx_id)
@@ -89,16 +89,10 @@ def search_disease(request):
     disease = MedicalDisease.objects.filter(disease_icd_cn__icontains = name)
     for _ in disease:
         disease_id = _.disease_id
-        disease_icd = _.disease_icd
         disease_icd_cn = _.disease_icd_cn
-        disease_icd_en = _.disease_icd_en
-        disease_icd_cn_shorthand = _.disease_icd_cn_shorthand
         dis_data = {
             'disease_id':disease_id,
-            'disease_icd':disease_icd,
-            'disease_icd_cn':disease_icd_cn,
-            'disease_icd_en':disease_icd_en,
-            'disease_icd_cn_shorthand':disease_icd_cn_shorthand
+            'disease_icd_cn':disease_icd_cn
         }
         dis_list.append(dis_data)
     rst_data = {
@@ -150,11 +144,9 @@ def search_Drugs_alias(request):
     for _ in drugs:
         drug_id = _.drug_id
         drug_common_name = _.drug_common_name
-        drug_alias = _.drug_alias
         drug_data = {
             'drug_id':drug_id,
-            'drug_common_name':drug_common_name,
-            'drug_alias':drug_alias
+            'drug_common_name':drug_common_name
         }
         drugs_list.append(drug_data)
     rst_data = {
@@ -205,6 +197,3 @@ def search_Drugs_dict(request):
         "data":drugs_list
     }
     return get_json_response(request, dict(status='1', message='ok', data=rst_data))   
-
-
-
