@@ -88,6 +88,20 @@ class MedicalTestHospital(models.Model):
         db_table = 'medical_test_hospital'
 
 
+class MedicalTestHospitalAlias(models.Model):
+    hospital_alias_id = models.BigIntegerField(primary_key=True)
+    test_hospital_alias_idx_id = models.BigIntegerField(blank=True, null=True)
+    hospital_idx_id = models.BigIntegerField(blank=True, null=True)
+    test_hospital_name = models.CharField(max_length=255, blank=True, null=True)
+    test_hospital_alias_name = models.CharField(max_length=255, blank=True, null=True)
+    create_date = models.DateTimeField(blank=True, null=True)
+    update_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'medical_test_hospital_alias'
+
+
 class MedicalTestIndexAliasDict(models.Model):
     seqid = models.BigIntegerField(primary_key=True)
     test_idx_id = models.BigIntegerField(blank=True, null=True)

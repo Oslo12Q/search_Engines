@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <style>
+    body {
+        font-size: 18px;
+    }
+    
+    .content {
+        max-width: 1200px;
+        margin: 100px auto;
+        border: 1px solid #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px 3px #999;
+    }
+    
+    .left_list {
+        height: 100px;
+        margin-top: 10px;
+    }
+    
+    .l_list {
+        background: #EEEEEE;
+        border-radius: 10px 0px 0px 10px;
+        padding-bottom: 20px;
+    }
+    
+    .l_row {
+        width: ;
+    }
+    
+    .l_top {
+        width: 100%;
+        line-height: 40px;
+        border-bottom: 1px solid #D6D4D4;
+    }
+    
+    .l_content:hover {
+        border: 1px solid #999;
+        border-radius: 10px;
+    }
+    
+    .center_content {
+        width: 100%;
+        height: 80px;
+        padding: 10px 0px;
+        margin-top: 10px;
+        border: 1px solid #f0f0f0;
+        cursor: pointer;
+    }
+    
+    .text {
+        padding-left: 10px;
+    }
+    
+    .center_content:hover {
+        border: 1px solid #fff;
+        border-radius: 10px;
+    }
+    
+    .search_yiyuan {
+        width: 100%;
+        height: 410px;
+        /*border: 1px solid red;*/
+    }
+    .input_row{
+    	height:130px;
+    	position: relative;
+		
+
+    }
+    .input_center{
+    	margin-top:60px;
+    }
+    ._scroll{
+    	height:280px;
+    	overflow: scroll;
+    	overflow-x:hidden; 
+    }
+    .float {
+        float: left;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 col-xs-4 l_list">
+                    <div class="row l_row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="l_top">数美医疗</div>
+                        </div>
+                        <div class="col-sm-12 left_list">
+                            <div class="center_content">
+                                <div class="img float">
+                                    <img src="/static/img/yiyuan.png" alt="">
+                                </div>
+                                <div class="text float">
+                                    <p style="margin-top:5px;">医院查询</p>
+                                    <p style="font-size:16px">医院查询</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 left_list">
+                            <div class="center_content">
+                                <div class="img float">
+                                    <img src="/static/img/yiyuan.png" alt="">
+                                </div>
+                                <div class="text float">
+                                    <p style="margin-top:5px;">医院查询</p>
+                                    <p style="font-size:16px">医院查询</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 left_list">
+                            <div class="center_content">
+                                <div class="img float">
+                                    <img src="/static/img/yiyuan.png" alt="">
+                                </div>
+                                <div class="text float">
+                                    <p style="margin-top:5px;">医院查询</p>
+                                    <p style="font-size:16px">医院查询</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 left_list">
+                            <div class="center_content">
+                                <div class="img float">
+                                    <img src="/static/img/yiyuan.png" alt="">
+                                </div>
+                                <div class="text float">
+                                    <p style="margin-top:5px;">医院查询</p>
+                                    <p style="font-size:16px">医院查询</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 text-center col-xs-8 r_list r_row">
+                    <div class="col-sm-12 l_top">医院查询</div>
+                    <div class="col-sm-12 search_yiyuan">
+                        <div class="row input_row">
+                        	<div class="col-sm-6 col-sm-offset-2 input_center">
+                        		<input type="text" id="jq_search" class="form-control" placeholder="请输入医院名称">
+                        		<div class="text-left" style="font-size: 14px;color:#999">请在输入框中输入医院名称、简拼或关键词</div>
+                        	</div>
+                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click()">查询</div>
+                        </div>
+                        <div class="row _scroll">
+                        	<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
+                        		查询结果
+                        	</div>
+                            <div class="show_data"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/jquery.js"></script>
+</body>
+<script>
+	var str='';
+	function search_click(){
+		var input_val=$('#jq_search').val();
+		set_ajax(input_val)
+	}
+	function set_ajax(val){
+		var input_value=val;
+		$.ajax({
+			url:'/dev/search_hospital/',
+			type:"POST",
+			data:{name:input_value},
+			success:function(msg){
+				$.each(msg['data']['data'], function(index, data) {
+					str+='<div class="text-left">'+data['test_hospital_name']+'</div>'
+            	});
+				$('._scroll').html(str)
+			}
+		})
+	}
+	function get_xiangqign(id){
+		$.ajax({
+			url:'./data_j.json',
+			type:"POST",
+			success:function(msg){
+				console.log(msg)
+				$.each(msg['data']['data'], function(index, data) {
+					str+='<div class="text-left">'+data['test_hospital_name']+'</div>'
+                	console.log(index,data)
+            	});
+				$('._scroll').append(str)
+			}
+		})
+	}
+</script>
+</html>
