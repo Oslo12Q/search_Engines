@@ -110,7 +110,21 @@ function get_xiangqign(id,list_id){
 			$.each(msg['data']['data'], function(index, data) {
 				xiang_str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>';
 				xiang_str+='<div class="text-left">【药品名称】</div>';
-				xiang_str+='<div class="text-left">'+data['drug_common_name']+'</div>';
+				xiang_str+='<div class="text-left">'+data['commonname']+'</div>';
+				xiang_str+='<div class="text-left">【药品成分】</div>';
+				xiang_str+='<div class="text-left">'+data['component']+'</div>';
+				xiang_str+='<div class="text-left">【适用症状】</div>';
+				xiang_str+='<div class="text-left">'+data['indication']+'</div>';
+				xiang_str+='<div class="text-left">【用法用量】</div>';
+				xiang_str+='<div class="text-left">'+data['dosage']+'</div>';
+				xiang_str+='<div class="text-left">【药物作用】</div>';
+				xiang_str+='<div class="text-left">'+data['drugInteractions']+'</div>';
+				xiang_str+='<div class="text-left">【禁忌】</div>';
+				xiang_str+='<div class="text-left">'+data['contraindications']+'</div>';
+				xiang_str+='<div class="text-left">【不良反应】</div>';
+				xiang_str+='<div class="text-left">'+data['adverseReactions']+'</div>';
+				xiang_str+='<div class="text-left">【注意事项】</div>';
+				xiang_str+='<div class="text-left">'+data['precautions']+'</div>';
         	});
 			$('.yiyuan_xiang').html(xiang_str);
 			$('.yiyuan_xiang').slideDown(500);
