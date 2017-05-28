@@ -27,33 +27,33 @@ function search_click(ele,number){
 function set_ajax(val,path_ajax){
 	str = '';
 	if(path_ajax=='0'){
-        // 医院详情
+        // 医院搜索
         obj_shumei['url']='/dev/search_hospital/';
         obj_shumei['str_fun']=function(msg){
         	$.each(msg['data']['data'], function(index, data) {
-        		str='<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>'
-				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(0,'+data["hospital_idx_id"]+')">'+data['test_hospital_name']+'</div>'
+				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(0,'+data["hospital_idx_id"]+')">'+data['test_hospital_name']+'</div>';
         	});
+        	$('._scroll').before('<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>');
 			$('._scroll').html(str)
         }
     }else if(path_ajax=='1'){
-        // 疾病详情
+        // 疾病搜索
         obj_shumei['url']='/dev/search_disease/';
         obj_shumei['str_fun']=function(msg){
         	$.each(msg['data']['data'], function(index, data) {
-        		str='<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>';
-				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(1,'+data["disease_id"]+')">'+data['disease_icd_cn']+'</div>'
+				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(1,'+data["disease_id"]+')">'+data['disease_icd_cn']+'</div>';
         	});
+        	$('._scroll').before('<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>');
 			$('._scroll').html(str)
         }
     }else if(path_ajax=='2'){
-        // 药品名称
+        // 药品搜索
         obj_shumei['url']='/dev/search_Drugs_alias/';
         obj_shumei['str_fun']=function(msg){
         	$.each(msg['data']['data'], function(index, data) {
-        		str='<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>';
-				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(2,'+data["drug_id"]+')">'+data['drug_common_name']+'</div>'
+				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(2,'+data["drug_id"]+')">'+data['drug_common_name']+'</div>';
         	});
+        	$('._scroll').before('<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>');
 			$('._scroll').html(str)
         }
     }
@@ -72,7 +72,7 @@ function get_xiangqign(id,list_id){
 		xiangqing['data']={hospital_idx_id:list_id};
 		xiangqing['data_xiang']=function(msg){
 			$.each(msg['data']['data'], function(index, data) {
-				xiang_str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>'
+				xiang_str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>';
 				xiang_str+='<div class="text-left">【医院名称】</div>';
 				xiang_str+='<div class="text-left">'+data['hospital_name']+'</div>';
 				xiang_str+='<div class="text-left">【等级】</div>';
@@ -92,13 +92,13 @@ function get_xiangqign(id,list_id){
 		xiangqing['data']={disease_id:list_id};
 		xiangqing['data_xiang']=function(msg){
 			$.each(msg['data']['data'], function(index, data) {
-				xiang_str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>'
+				xiang_str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>';
 				xiang_str+='<div class="text-left">【疾病名称】</div>';
 				xiang_str+='<div class="text-left">'+data['disease_icd_cn']+'</div>';
 				xiang_str+='<div class="text-left">【ICD编码】</div>';
 				xiang_str+='<div class="text-left">'+data['disease_icd']+'</div>';
         	});
-			$('.yiyuan_xiang').html(xiang_str)
+			$('.yiyuan_xiang').html(xiang_str);
 			$('.yiyuan_xiang').slideDown(500);
 			$('.search_yiyuan').slideUp(500);
 		}
@@ -108,11 +108,11 @@ function get_xiangqign(id,list_id){
 		xiangqing['data']={drug_id:list_id};
 		xiangqing['data_xiang']=function(msg){
 			$.each(msg['data']['data'], function(index, data) {
-				xiang_str='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>'
+				xiang_str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>';
 				xiang_str+='<div class="text-left">【药品名称】</div>';
 				xiang_str+='<div class="text-left">'+data['drug_common_name']+'</div>';
         	});
-			$('.yiyuan_xiang').html(xiang_str)
+			$('.yiyuan_xiang').html(xiang_str);
 			$('.yiyuan_xiang').slideDown(500);
 			$('.search_yiyuan').slideUp(500);
 		}
