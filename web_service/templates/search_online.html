@@ -1,128 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <style>
-    body {
-        font-size: 18px;
-    }
-    
-    .content {
-        max-width: 1200px;
-        margin: 100px auto;
-        border: 1px solid #f0f0f0;
-        border-radius: 10px;
-        box-shadow: 0px 0px 15px 3px #999;
-    }
-    
-    .left_list {
-        height: 100px;
-        margin-top: 10px;
-    }
-    
-    .l_list {
-        background: #EEEEEE;
-        border-radius: 10px 0px 0px 10px;
-        padding-bottom: 20px;
-    }
-    
-    .r_list{
-        position: relative;
-        z-index: 6;
-    }
-    .l_top {
-        width: 100%;
-        line-height: 40px;
-        border-bottom: 1px solid #D6D4D4;
-    }
-    
-    .l_content:hover {
-        border: 1px solid #999;
-        border-radius: 10px;
-    }
-    
-    .center_content {
-        width: 100%;
-        height: 80px;
-        padding: 10px 0px;
-        margin-top: 10px;
-        border: 1px solid #f0f0f0;
-        cursor: pointer;
-    }
-    
-    .text {
-        padding-left: 10px;
-    }
-    
-    .center_content:hover {
-        border: 1px solid #fff;
-        border-radius: 10px;
-    }
-    
-    .search_yiyuan {
-        width: 100%;
-        height: 410px;
-        display: block;
-    }
-    .input_row{
-        height:130px;
-        position: relative;
-        
-
-    }
-    .input_center{
-        margin-top:60px;
-    }
-    ._scroll{
-        height:280px;
-        overflow: scroll;
-        overflow-x:hidden; 
-        display: none;
-    }
-    .yiyuan_xiang{
-        position: absolute;
-        top:50px;
-        left:20px;
-        width:95%;
-        height:440px;
-        border-radius: 10px;
-        background: #ddd;
-        z-index: 10;
-        padding:10px;
-        overflow: scroll;
-        overflow-x:hidden;
-        display: none;
-    }
-    .span_float{
-        width: 30px;
-        height:30px;
-        line-height: 30px;
-        border: 1px solid #333;
-        float: right;
-        cursor: pointer;
-        text-align: center;
-    }
-    .yiyuan_style{
-        height:100px;
-        padding:0px 20px;
-        line-height: 100px;
-        border-bottom: 1px solid #ddd;
-        cursor: pointer;
-        clear: both;
-    }
-    .yiyuan_style:hover{
-        background: #f0f0f0;
-    }
-    .float {
-        float: left;
-    }
-    </style>
+    <link rel="stylesheet" href="/static/css/search.css">
 </head>
-
 <body>
     <div class="content">
         <div class="container-fluid">
@@ -132,140 +16,159 @@
                         <div class="col-sm-12 col-xs-12">
                             <div class="l_top">数美医疗</div>
                         </div>
-                        <div class="col-sm-12 left_list">
-                            <div class="center_content">
+                        <div class="col-sm-12 left_list ">
+                            <div class="center_content style_list" data-type=0>
                                 <div class="img float">
                                     <img src="/static/img/yiyuan.png" alt="">
                                 </div>
                                 <div class="text float">
-                                    <p style="margin-top:5px;">医院查询</p>
-                                    <p style="font-size:16px">医院查询</p>
+                                    <p style="margin-top:5px;">医院信息查询</p>
+                                    <p style="font-size:14px">为您提供全国医院信息查询</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 left_list">
-                            <div class="center_content">
+                            <div class="center_content" data-type=1>
                                 <div class="img float">
-                                    <img src="/static/img/yiyuan.png" alt="">
+                                    <img src="/static/img/jiancah.png" alt="">
                                 </div>
                                 <div class="text float">
-                                    <p style="margin-top:5px;">医院查询</p>
-                                    <p style="font-size:16px">医院查询</p>
+                                    <p style="margin-top:5px;">疾病代码查询</p>
+                                    <p style="font-size:14px">为您提供疾病ICD编码查询</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 left_list">
-                            <div class="center_content">
+                            <div class="center_content" data-type=2>
                                 <div class="img float">
-                                    <img src="/static/img/yiyuan.png" alt="">
+                                    <img src="/static/img/yaowu.png" alt="">
                                 </div>
                                 <div class="text float">
-                                    <p style="margin-top:5px;">医院查询</p>
-                                    <p style="font-size:16px">医院查询</p>
+                                    <p style="margin-top:5px;">药品信息查询</p>
+                                    <p style="font-size:14px">为您提供丰富的药品说明</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 left_list">
-                            <div class="center_content">
+                            <div class="center_content" data-type=3>
                                 <div class="img float">
-                                    <img src="/static/img/yiyuan.png" alt="">
+                                    <img src="/static/img/bingli.png" alt="">
                                 </div>
                                 <div class="text float">
-                                    <p style="margin-top:5px;">医院查询</p>
-                                    <p style="font-size:16px">医院查询</p>
+                                    <p style="margin-top:5px;">检查检验指标查询</p>
+                                    <p style="font-size:14px">为您提供各项检查检验指标查询</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-8 text-center col-xs-8 r_list r_row">
+
+                <div class="col-sm-8 text-center col-xs-8 r_list r_row show">
                     <div class="col-sm-12 l_top">医院查询</div>
                     <div class="col-sm-12 search_yiyuan">
                         <div class="row input_row">
-                        	<div class="col-sm-6 col-sm-offset-2 input_center">
-                        		<input type="text" id="jq_search" class="form-control" placeholder="请输入医院名称">
-                        		<div class="text-left" style="font-size: 14px;color:#999">请在输入框中输入医院名称、简拼或关键词</div>
+                        	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-6">
+                        		<input type="text" id="jq_search_yiyuan" class="form-control" placeholder="请输入医院名称">
+                        		<div class="text-left" style="font-size: 14px;color:#666;padding-top:10px">请在输入框中输入医院名称、简拼或关键词</div>
                         	</div>
-                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click()">查询</div>
+                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click(this,'0')">查询</div>
                         </div>
                         <div class="row _scroll">
                         	<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
-                        		查询结果
+                        		热门搜索
                         	</div>
-                            <div class="show_data"></div>
+							<div class="col-sm-12 text-left" style="margin-top:20px;">
+								<span class="btn btn-default click_val" style="margin:10px 20px;" onclick="click_val(this)">北京天坛医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京协和医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京国丹医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京儿童医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京朝阳医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京宣武医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京安贞医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京同仁医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京积水潭医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京东直门医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">阜外心血管病医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京大学人民医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京大学口腔医院</span>
+								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">解放军总医院(301医院)</span>
+							</div>
                         </div>
                     </div>
-                    <div class="yiyuan_xiang text-left">
-                        <span class="span_float" onclick="hide_true()">x</span>
+	                <div class="yiyuan_xiang text-left">
+	                	<span class="span_float" onclick="hide_true()">x</span>
+	                </div>
+                </div>
+                
+                <div class="col-sm-8 text-center col-xs-8 r_list r_row">
+                    <div class="col-sm-12 l_top">疾病代码查询</div>
+                    <div class="col-sm-12 search_yiyuan">
+                        <div class="row input_row">
+                        	<div class="col-sm-6 col-sm-offset-2 input_center">
+                        		<input type="text" id="jq_search" class="form-control" placeholder="请输入疾病名称">
+                        		<div class="text-left" style="font-size: 14px;color:#666;padding-top:10px;">请在输入框中输入疾病名称</div>
+                        	</div>
+                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click(this,'1')">查询</div>
+                        </div>
+                        <div class="row _scroll">
+                        	<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
+                        		热门搜索
+                        	</div>
+							<div class="show_data text-left"></div>
+                        </div>
                     </div>
+	                <div class="yiyuan_xiang text-left">
+	                	<span class="span_float" onclick="hide_true()">x</span>
+	                </div>
+                </div>
+
+				<div class="col-sm-8 text-center col-xs-8 r_list r_row">
+                    <div class="col-sm-12 l_top">药品信息查询</div>
+                    <div class="col-sm-12 search_yiyuan">
+                        <div class="row input_row">
+                        	<div class="col-sm-6 col-sm-offset-2 input_center">
+                        		<input type="text" id="jq_search" class="form-control" placeholder="请输入药品名称">
+                        		<div class="text-left" style="font-size: 14px;color:#666;padding-top:10px;">请在输入框中输入药品名称</div>
+                        	</div>
+                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click(this,'2')">查询</div>
+                        </div>
+                        <div class="row _scroll">
+                        	<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
+                        		热门搜索
+                        	</div>
+							<div class="show_data text-left"></div>
+                        </div>
+                    </div>
+	                <div class="yiyuan_xiang text-left">
+	                	<span class="span_float" onclick="hide_true()">x</span>
+	                </div>
+                </div>
+
+                <div class="col-sm-8 text-center col-xs-8 r_list r_row">
+                    <div class="col-sm-12 l_top">检查检验指标查询</div>
+                    <div class="col-sm-12 search_yiyuan">
+                        <div class="row input_row">
+                        	<div class="col-sm-6 col-sm-offset-2 input_center">
+                        		<input type="text" id="jq_search" class="form-control" placeholder="请输入指标名称">
+                        		<div class="text-left" style="font-size: 14px;color:#666;padding-top:10px;">请在输入框中输入指标名称</div>
+                        	</div>
+                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click(this,'3')">查询</div>
+                        </div>
+                        <div class="row _scroll">
+                        	<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
+                        		热门搜索
+                        	</div>
+							<div class="show_data text-left"></div>
+                        </div>
+                    </div>
+	                <div class="yiyuan_xiang text-left">
+	                	
+	                </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/search.js"></script>
 </body>
-<script>
-	var str='';
-    var xiang_str='';
-    var ajax_id='';
-    $('#jq_search').focus(function(){
-        $('._scroll').html('');
-        $('.yiyuan_xiang').html("");
-
-    })
-	function search_click(){
-		var input_val=$('#jq_search').val();
-		set_ajax(input_val)
-	}
-	function set_ajax(val){
-		var input_value=val;
-		$.ajax({
-			url:'/dev/search_hospital/',
-			type:"POST",
-			data:{name:input_value},
-			success:function(msg){
-				$.each(msg['data']['data'], function(index, data) {
-					str+='<div class="text-left yiyuan_style" onclick=get_xiangqign("'+data['hospital_idx_id']+'")>'+data['test_hospital_name']+'</div>'
-                    ajax_id=data['hospital_idx_id'];
-            	});
-                $('._scroll').show();
-				$('._scroll').append(str)
-                msg=null;
-			}
-		})
-	}
-	function get_xiangqign(id){
-        var s_id=id;
-		$.ajax({
-			url:'/dev/search_hospital_dict/',
-			type:"POST",
-            data:{hospital_idx_id:s_id},
-			success:function(msg){
-                if(status=='error'){
-                    return;
-                }
-				$.each(msg['data']['data'], function(index, data) {
-					$.each(msg['data']['data'], function(index, data) {
-                    xiang_str+='<div class="text-left">【医院名称】</div>';
-                    xiang_str+='<div class="text-left">'+data['hospital_name']+'</div>';
-                    xiang_str+='<div class="text-left">【等级】</div>';
-                    xiang_str+='<div class="text-left">'+data['hospital_level']+'</div>';
-                    xiang_str+='<div class="text-left">【联系电话】</div>';
-                    xiang_str+='<div class="text-left">'+data['hospital_phone']+'</div>';
-                    xiang_str+='<div class="text-left">【地址】</div>';
-                    xiang_str+='<div class="text-left">'+data['hospital_address']+'</div>';
-                });
-                $('.yiyuan_xiang').append(xiang_str)
-                $('.yiyuan_xiang').show();
-                $('.search_yiyuan').hide();
-                msg=null;
-            });
-			}
-		})
-	}
-    function hide_true(){
-        $('.yiyuan_xiang').hide();
-        $('.search_yiyuan').show();
-    }
-</script>
 </html>

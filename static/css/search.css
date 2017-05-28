@@ -1,0 +1,131 @@
+body {
+    font-size: 18px;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 100px auto;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 3px #999;
+    position: relative;
+}
+
+.left_list {
+    height: 100px;
+    margin-top: 10px;
+}
+
+.l_list {
+    background: #EEEEEE;
+    border-radius: 10px 0px 0px 10px;
+    padding-bottom: 20px;
+}
+
+.r_list {
+    position: absolute;
+    right: 0px;
+    z-index: 6;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.l_top {
+    width: 100%;
+    line-height: 40px;
+    border-bottom: 1px solid #D6D4D4;
+}
+
+.l_content:hover {
+    border: 1px solid #999;
+    border-radius: 10px;
+}
+
+.center_content {
+    width: 100%;
+    height: 80px;
+    padding: 10px 0px;
+    margin-top: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.text {
+    padding-left: 10px;
+}
+
+.search_yiyuan {
+    width: 100%;
+    height: 410px;
+    display: block;
+}
+
+.input_row {
+    height: 130px;
+    position: relative;
+}
+
+.input_center {
+    margin-top: 60px;
+}
+
+._scroll {
+    height: 280px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.yiyuan_xiang {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 95%;
+    height: 440px;
+    border-radius: 10px;
+    background: #ddd;
+    z-index: 10;
+    padding: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: none;
+}
+
+.span_float {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+}
+
+.yiyuan_style {
+    height: 100px;
+    padding: 0px 20px;
+    line-height: 100px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    clear: both;
+}
+
+.yiyuan_style:hover {
+    background: #f0f0f0;
+}
+
+.float {
+    float: left;
+}
+
+.style_list {
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 10px;
+}
