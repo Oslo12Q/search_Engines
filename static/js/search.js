@@ -14,10 +14,10 @@ var xiangqing={};
 			.find('.center_content')
 			.removeClass('style_list');
 		$('.r_list')
- 		.eq(index)
- 		.addClass('show')
- 		.siblings()
- 		.removeClass('show');
+	 		.eq(index)
+	 		.addClass('show')
+	 		.siblings()
+	 		.removeClass('show');
  		hide_true();
 	}
 function search_click(ele,number){
@@ -33,7 +33,7 @@ function set_ajax(val,path_ajax){
         	$.each(msg['data']['data'], function(index, data) {
 				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(0,'+data["hospital_idx_id"]+')">'+data['test_hospital_name']+'</div>';
         	});
-        	$('._scroll').before('<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>');
+        	// $('._scroll').before('<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>');
 			$('._scroll').html(str)
         }
     }else if(path_ajax=='1'){
@@ -43,7 +43,7 @@ function set_ajax(val,path_ajax){
         	$.each(msg['data']['data'], function(index, data) {
 				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(1,'+data["disease_id"]+')">'+data['disease_icd_cn']+'</div>';
         	});
-        	$('._scroll').before('<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>');
+        	// $('._scroll').before('<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>');
 			$('._scroll').html(str)
         }
     }else if(path_ajax=='2'){
@@ -53,7 +53,7 @@ function set_ajax(val,path_ajax){
         	$.each(msg['data']['data'], function(index, data) {
 				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(2,'+data["drug_id"]+')">'+data['drug_common_name']+'</div>';
         	});
-        	$('._scroll').before('<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>');
+        	// $('._scroll').before('<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">查询结果</div>');
 			$('._scroll').html(str)
         }
     }
