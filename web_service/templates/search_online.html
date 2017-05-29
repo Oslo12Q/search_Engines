@@ -11,88 +11,91 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-4 col-xs-4 l_list">
+                <div class="col-sm-4 col-xs-4 l_list l_list_screen">
                     <div class="row l_row">
-                        <div class="col-sm-12 col-xs-12">
+                        <div class="col-sm-12 col-xs-12 padding_shumei">
                             <div class="l_top">数美医疗</div>
                         </div>
-                        <div class="col-sm-12 left_list ">
-                            <div class="center_content style_list" data-type=0>
+                        <div class="col-sm-12 left_list col-xs-12">
+                            <div class="center_content style_list" data-type="0">
                                 <div class="img float">
                                     <img src="/static/img/yiyuan.png" alt="">
                                 </div>
                                 <div class="text float">
                                     <p style="margin-top:5px;">医院信息查询</p>
-                                    <p style="font-size:14px">为您提供全国医院信息查询</p>
+                                    <p style="font-size:14px" class="text_hide">为您提供全国医院信息查询</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 left_list">
-                            <div class="center_content" data-type=1>
+                            <div class="center_content col-xs-12" data-type="1">
                                 <div class="img float">
                                     <img src="/static/img/jiancah.png" alt="">
                                 </div>
                                 <div class="text float">
                                     <p style="margin-top:5px;">疾病代码查询</p>
-                                    <p style="font-size:14px">为您提供疾病ICD编码查询</p>
+                                    <p style="font-size:14px" class="text_hide">为您提供疾病ICD编码查询</p>
                                 </div>
-                            </div>
+                        	</div>
                         </div>
+
                         <div class="col-sm-12 left_list">
-                            <div class="center_content" data-type=2>
+                            <div class="center_content col-xs-12" data-type="2">
                                 <div class="img float">
                                     <img src="/static/img/yaowu.png" alt="">
                                 </div>
                                 <div class="text float">
                                     <p style="margin-top:5px;">药品信息查询</p>
-                                    <p style="font-size:14px">为您提供丰富的药品说明</p>
+                                    <p style="font-size:14px" class="text_hide">为您提供丰富的药品说明</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 left_list">
-                            <div class="center_content" data-type=3>
+                            <div class="center_content col-xs-12" data-type="3">
                                 <div class="img float">
                                     <img src="/static/img/bingli.png" alt="">
                                 </div>
                                 <div class="text float">
                                     <p style="margin-top:5px;">检查检验指标查询</p>
-                                    <p style="font-size:14px">为您提供各项检查检验指标查询</p>
+                                    <p style="font-size:14px" class="text_hide">为您提供各项检查检验指标查询</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-sm-8 text-center col-xs-8 r_list r_row show">
-                    <div class="col-sm-12 l_top">医院查询</div>
-                    <div class="col-sm-12 search_yiyuan">
+                <div class="col-sm-8 text-center col-xs-12 r_list r_row show">
+                    <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;" class="span_img" onclick="samll_click()"><img src="./img/10104tab bar_top_cebianlan.png" alt=""></span>医院查询</div>
+                    <div class="col-sm-12 col-xs-12 search_yiyuan">
                         <div class="row input_row">
-                        	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-6">
+                        	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-10 media_padding">
                         		<input type="text" id="jq_search_yiyuan" class="form-control" placeholder="请输入医院名称">
-                        		<div class="text-left" style="font-size: 14px;color:#666;padding-top:10px">请在输入框中输入医院名称、简拼或关键词</div>
+                        		<div class="text-left" style="font-size: 12px;color:#666;padding-top:10px">请在输入框中输入医院名称、简拼或关键词</div>
                         	</div>
-                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click(this,'0')">查询</div>
+                        	<div class="btn btn-info col-sm-2 col-xs-2 input_center " onclick="search_click(this,'0')">查询</div>
+                        </div>
+                        <div class="row text-left">
+                        	<div class="col-sm-12 col-xs-12 "></div>
                         </div>
                         <div class="row _scroll">
-                        	<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
+                        	<div class="col-sm-12 text-left html_title" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
                         		热门搜索
                         	</div>
-							<div class="col-sm-12 text-left" style="margin-top:20px;">
-								<span class="btn btn-default click_val" style="margin:10px 20px;" onclick="click_val(this)">北京天坛医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京协和医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京国丹医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京儿童医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京朝阳医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京宣武医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京安贞医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京同仁医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京积水潭医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京东直门医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">阜外心血管病医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京大学人民医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">北京大学口腔医院</span>
-								<span class="btn btn-default"style="margin:10px 20px;" onclick="click_val(this)">解放军总医院(301医院)</span>
-							</div>
+                        	<div class="show_data text-left"></div>
+							<div class="col-sm-12 col-xs-12 text-left clear_padding ">
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京天坛医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 col-xs-offset-2 clear_margin_yiyuan" onclick="click_val(this)">北京协和医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京国丹医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京儿童医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京朝阳医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京宣武医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京安贞医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京同仁医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京积水潭医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">大人民医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北大口腔医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">解放军总医院</span>
+					 		</div>
                         </div>
                     </div>
 	                <div class="yiyuan_xiang text-left">
@@ -100,18 +103,18 @@
 	                </div>
                 </div>
                 
-                <div class="col-sm-8 text-center col-xs-8 r_list r_row">
-                    <div class="col-sm-12 l_top">疾病代码查询</div>
-                    <div class="col-sm-12 search_yiyuan">
+                <div class="col-sm-8 text-center col-xs-12 r_list r_row">
+                    <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;" class="span_img" onclick="samll_click()"><img src="./img/10104tab bar_top_cebianlan.png" alt=""></span>疾病查询</div>
+                    <div class="col-sm-12 search_yiyuan col-xs-12">
                         <div class="row input_row">
-                        	<div class="col-sm-6 col-sm-offset-2 input_center">
-                        		<input type="text" id="jq_search" class="form-control" placeholder="请输入疾病名称">
-                        		<div class="text-left" style="font-size: 14px;color:#666;padding-top:10px;">请在输入框中输入疾病名称</div>
+                        	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-10 media_padding">
+                        		<input type="text" id="jq_search_yiyuan" class="form-control" placeholder="请输入疾病名称">
+                        		<div class="text-left" style="font-size: 12px;color:#666;padding-top:10px">请在输入框中输入疾病名称</div>
                         	</div>
-                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click(this,'1')">查询</div>
+                        	<div class="btn btn-info col-sm-2 col-xs-2 input_center " onclick="search_click(this,'1')">查询</div>
                         </div>
                         <div class="row _scroll">
-                        	<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
+                        	<div class="col-sm-12 text-left html_title" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
                         		热门搜索
                         	</div>
 							<div class="show_data text-left"></div>
@@ -122,18 +125,18 @@
 	                </div>
                 </div>
 
-				<div class="col-sm-8 text-center col-xs-8 r_list r_row">
-                    <div class="col-sm-12 l_top">药品信息查询</div>
-                    <div class="col-sm-12 search_yiyuan">
+				<div class="col-sm-8 text-center col-xs-12 r_list r_row">
+                     <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;"  class="span_img" onclick="samll_click()"><img src="./img/10104tab bar_top_cebianlan.png" alt=""></span>药品查询</div>
+                    <div class="col-sm-12 search_yiyuan col-xs-12">
                         <div class="row input_row">
-                        	<div class="col-sm-6 col-sm-offset-2 input_center">
-                        		<input type="text" id="jq_search" class="form-control" placeholder="请输入药品名称">
-                        		<div class="text-left" style="font-size: 14px;color:#666;padding-top:10px;">请在输入框中输入药品名称</div>
+                        	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-10 media_padding">
+                        		<input type="text" id="jq_search_yiyuan" class="form-control" placeholder="请输入药品名称">
+                        		<div class="text-left" style="font-size: 12px;color:#666;padding-top:10px">请在输入框中输入药品名称</div>
                         	</div>
-                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click(this,'2')">查询</div>
+                        	<div class="btn btn-info col-sm-2 col-xs-2 input_center" onclick="search_click(this,'2')">查询</div>
                         </div>
                         <div class="row _scroll">
-                        	<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
+                        	<div class="col-sm-12 text-left html_title" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
                         		热门搜索
                         	</div>
 							<div class="show_data text-left"></div>
@@ -144,29 +147,28 @@
 	                </div>
                 </div>
 
-                <div class="col-sm-8 text-center col-xs-8 r_list r_row">
-                    <div class="col-sm-12 l_top">检查检验指标查询</div>
-                    <div class="col-sm-12 search_yiyuan">
+                <div class="col-sm-8 text-center col-xs-12 r_list r_row">
+                <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;"  class="span_img" onclick="samll_click()"><img src="./img/10104tab bar_top_cebianlan.png" alt=""></span>检查检验指标查询</div>
+                    <div class="col-sm-12 search_yiyuan col-xs-12">
                         <div class="row input_row">
-                        	<div class="col-sm-6 col-sm-offset-2 input_center">
+                        	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-10 media_padding">
                         		<input type="text" id="jq_search" class="form-control" placeholder="请输入指标名称">
-                        		<div class="text-left" style="font-size: 14px;color:#666;padding-top:10px;">请在输入框中输入指标名称</div>
+                        		<div class="text-left" style="font-size: 12px;color:#666;padding-top:10px;">请在输入框中输入指标名称</div>
                         	</div>
-                        	<div class="btn btn-info col-sm-2 input_center" onclick="search_click(this,'3')">查询</div>
+                        	<div class="btn btn-info col-sm-2 col-xs-2 input_center" onclick="search_click(this,'3')">查询</div>
                         </div>
                         <div class="row _scroll">
-                        	<div class="col-sm-12 text-left" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
+                        	<div class="col-sm-12 text-left html_title" style="border-bottom:1px solid #f0f0f0;padding:0px 5px;">
                         		热门搜索
                         	</div>
 							<div class="show_data text-left"></div>
                         </div>
                     </div>
-	                <div class="yiyuan_xiang text-left">
-	                	
-	                </div>
+	                <div class="yiyuan_xiang text-left"></div>
                 </div>
+
             </div>
-        </div>
+    	</div>
     </div>
     <script src="/static/js/jquery.js"></script>
     <script src="/static/js/search.js"></script>

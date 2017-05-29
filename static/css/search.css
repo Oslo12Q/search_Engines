@@ -1,14 +1,14 @@
 body {
-    font-size: 18px;
-}
-
-.content {
+    font-size: 16px;
     max-width: 1200px;
     margin: 100px auto;
     border: 1px solid #f0f0f0;
     border-radius: 10px;
     box-shadow: 0px 0px 15px 3px #999;
     position: relative;
+    overflow: hidden;
+}
+.content {
 }
 
 .left_list {
@@ -20,6 +20,7 @@ body {
     background: #EEEEEE;
     border-radius: 10px 0px 0px 10px;
     padding-bottom: 20px;
+    /*display: none;*/
 }
 
 .r_list {
@@ -128,4 +129,104 @@ body {
     background: #fff;
     border: 1px solid #999;
     border-radius: 10px;
+}
+.clear_margin_yiyuan{
+    margin:10px 20px;
+}
+.clear_padding{
+    margin-top:20px;
+}
+@media screen and (max-width:768px) {
+    body{
+        font-size: 14px;
+        margin: 0px auto;
+
+    }
+    .show{
+        padding: 0px;
+    }
+    .l_top{
+        background: #ddd;
+        padding:0px;
+    }
+    .l_list{
+        position: absolute;
+        left:-210px;
+        width:200px;
+        z-index: 100;
+        border-radius:0px;
+        padding: 0px;
+        border-radius: 0px 10px 10px 0px;
+        box-shadow: 0px 0px 10px 5px #666;
+    }
+    .l_row{
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+    .input_row{
+        height:90px;
+        padding:0px 2px;
+    }
+    .input_center{
+        margin-top:20px;
+    }
+    .media_padding{
+        padding:0px 5px 0px 0px;
+    }
+    ._scroll{
+        min-height: 430px;
+        overflow: auto;
+    }
+    .clear_padding{
+        padding:0px;
+        margin-top:10px;
+    }
+    .clear_margin_yiyuan{
+        margin:10px 10px;
+    }
+    .yiyuan_style{
+        height:50px;
+        padding: 0px;
+        line-height: 50px;
+    }
+    .html_title{
+        padding:0px;
+    }
+    .yiyuan_xiang{
+        left:8px;
+    }
+    .img{
+        display: none;
+    }
+    .l_top {
+        width: 100%;
+        padding: 0px;
+        border-bottom: 1px solid #D6D4D4;
+    }
+    .left_list {
+        clear: both;
+        padding: 0px;
+        height: 50px;
+        margin-top: 0px;
+    }
+    .style_list{
+        background: #fff;
+        border: 1px solid #999;
+        border-radius: 0px; 
+    }
+    .center_content {
+        clear: both;
+        height:100%;
+        padding: 10px 0px;
+        margin-top: 0px;
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+    .padding_shumei{
+        padding: 0px;
+    }
+    .text_hide{
+        display: none;
+    }
 }
