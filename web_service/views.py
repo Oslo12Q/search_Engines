@@ -197,3 +197,66 @@ def search_Drugs_dict(request):
         "data":drugs_list
     }
     return get_json_response(request, dict(status='1', message='ok', data=rst_data))   
+
+
+##指标别名检索
+
+def medical_test_index_alias_dict(request):
+    
+    if request.method != 'POST':
+        return get_json_response(request, dict(status='error', message='only POST method supported.', data=None))
+    test_idx_alias = request.POST.get('name',None)
+    if not test_idx_alias:
+        return get_json_response(request, dict(status='error', message='test_idx_name is None.', data=None))
+
+    medical_list = []
+    medical_dict = MedicalTestIndexAliasDict.objects.filter(test_idx_alias__icontains = test_idx_alias)
+    for _ in medical_dict:
+        test_idx_id = _.test_idx_id
+        test_idx_name = _.test_idx_name
+        test_idx_alias = _.test_idx_alias
+        medical_data = {
+            'test_idx_id':test_idx_id,
+            'test_idx_name':test_idx_name,
+            'test_idx_alias':test_idx_alias
+        }
+        medical_list.append(medical_data)
+    rst_data = {
+        "data":medical_list
+    }
+    return get_json_response(request, dict(status='1', message='ok', data=rst_data)) 
+
+##根据别名检测主表信息
+
+def medical_test_index_dict(request):
+
+    if request.method != 'POST':
+        return get_json_response(request, dict(status='error', message='only POST method supported.', data=None))
+
+    test_idx_id = request.POST.get('id',None)
+    if not test_idx_id:
+        return get_json_response(request, dict(status='error', message='id is None.', data = None))
+    medical_list = []
+    medical_dict = MedicalTestIndexDict.objects.filter(test_idx_id = test_idx_id)
+    for _ in medical_dict:
+        test_idx_id = _.test_idx_id
+        test_idx_name = _.test_idx_name
+        testprinciple = _.testprinciple
+        normalvaluedescription = _.normalvaluedescription
+        diseaserelated = _.diseaserelated
+        summary = _.summary
+        testdescription = _.testdescription
+        medical_data = {
+            'test_idx_id':test_idx_id,
+            'test_idx_name':test_idx_name,
+            'testprinciple':testprinciple,
+            'normalvaluedescription':normalvaluedescription,
+            'diseaserelated':diseaserelated,
+            'summary':summary,
+            'testdescription':testdescription
+        }
+    medical_list.append(medical_data)
+    rst_data = {
+        "data":medical_list
+    }
+    return get_json_response(request, dict(status='1', message='ok', data=rst_data)) 

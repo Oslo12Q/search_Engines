@@ -14,5 +14,8 @@ urlpatterns = [
 
     url(r'search_Drugs_alias/$',views.search_Drugs_alias, name = 'search_Drugs_alias'),
     url(r'search_Drugs_dict/$', views.search_Drugs_dict, name = 'search_Drugs_dict'),
+
+    url(r'search_medical_alias/$',views.medical_test_index_alias_dict, name = 'search_medical_alias'),
+    url(r'search_medical_dict/$',views.medical_test_index_dict, name = 'search_medical_dict'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
