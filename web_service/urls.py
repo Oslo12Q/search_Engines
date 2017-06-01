@@ -18,10 +18,9 @@ urlpatterns = [
     url(r'search_medical_alias/$',views.medical_test_index_alias_dict, name = 'search_medical_alias'),
     url(r'search_medical_dict/$',views.medical_test_index_dict, name = 'search_medical_dict'),
 ]
-from django.conf.urls import *
-urlpatterns += patterns('',
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.STATIC_ROOT,
-        }),
-   )
+if settings.DEBUG is False:
+    urlpatterns += [
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', { 'document_root': settings.STATIC_ROOT}),
+    ]
+
 #urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
