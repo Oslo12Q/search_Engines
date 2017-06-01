@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>数美医疗</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/search.css">
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="col-sm-8 text-center col-xs-12 r_list r_row show">
-                    <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;" class="span_img" onclick="samll_click()"><img src="/static/img/tab_list.png" alt=""></span>医院查询</div>
+                    <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;" class="span_img" onclick="samll_click()"><img class="switch_img" src="/static/img/tab_list.png" alt=""></span>医院查询</div>
                     <div class="col-sm-12 col-xs-12 search_yiyuan">
                         <div class="row input_row">
                         	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-10 media_padding">
@@ -90,8 +90,8 @@
 								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京民族医院</span>
 								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京天乐医院</span>
 								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京普京医院</span>
-								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京地坛医院</span>
 								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京协和医院</span>
+								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京地坛医院</span>
 								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京民康医院</span>
 								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">北京两广医院</span>
 								<span class="btn btn-default col-xs-5 col-sm-2 clear_margin_yiyuan" onclick="click_val(this)">解放军总医院</span>
@@ -99,12 +99,11 @@
                         </div>
                     </div>
 	                <div class="yiyuan_xiang text-left">
-	                	<span class="span_float" onclick="hide_true()">x</span>
 	                </div>
                 </div>
                 
                 <div class="col-sm-8 text-center col-xs-12 r_list r_row">
-                    <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;" class="span_img" onclick="samll_click()"><img src="/static/img/tab_list.png" alt=""></span>疾病查询</div>
+                    <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;" class="span_img" onclick="samll_click()"><img class="switch_img" src="/static/img/tab_list.png" alt=""></span>疾病查询</div>
                     <div class="col-sm-12 search_yiyuan col-xs-12">
                         <div class="row input_row">
                         	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-10 media_padding">
@@ -121,12 +120,11 @@
                         </div>
                     </div>
 	                <div class="yiyuan_xiang text-left">
-	                	<span class="span_float" onclick="hide_true()">x</span>
 	                </div>
                 </div>
 
 				<div class="col-sm-8 text-center col-xs-12 r_list r_row">
-                     <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;"  class="span_img" onclick="samll_click()"><img src="/static/img/tab_list.png" alt=""></span>药品查询</div>
+                     <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;"  class="span_img" onclick="samll_click()"><img class="switch_img" src="/static/img/tab_list.png" alt=""></span>药品查询</div>
                     <div class="col-sm-12 search_yiyuan col-xs-12">
                         <div class="row input_row">
                         	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-10 media_padding">
@@ -143,16 +141,15 @@
                         </div>
                     </div>
 	                <div class="yiyuan_xiang text-left">
-	                	<span class="span_float" onclick="hide_true()">x</span>
 	                </div>
                 </div>
 
                 <div class="col-sm-8 text-center col-xs-12 r_list r_row">
-                <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;"  class="span_img" onclick="samll_click()"><img src="/static/img/tab_list.png" alt=""></span>检查检验指标查询</div>
+                    <div class="col-sm-12 col-xs-6 l_top"><span style="float: left;padding-left:10px;"  class="span_img" onclick="samll_click()"><img class="switch_img" src="/static/img/tab_list.png" alt=""></span>检查检验指标查询</div>
                     <div class="col-sm-12 search_yiyuan col-xs-12">
                         <div class="row input_row">
                         	<div class="col-sm-6 col-sm-offset-2 input_center col-xs-10 media_padding">
-                        		<input type="text" id="jq_search" class="form-control" placeholder="请输入指标名称">
+                        		<input type="text" id="jq_search_yiyuan" class="form-control" placeholder="请输入指标名称">
                         		<div class="text-left" style="font-size: 12px;color:#666;padding-top:10px;">请在输入框中输入指标名称</div>
                         	</div>
                         	<div class="btn btn-info col-sm-2 col-xs-2 input_center" onclick="search_click(this,'3')">查询</div>

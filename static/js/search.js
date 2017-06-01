@@ -23,7 +23,7 @@ var xiangqing={};
 	 	$('.l_list_screen').animate({'left':'-210px'},500)
 	 	$('.form-control').val('');
 	 	$('.show_data').html('');
-	 	$('.html_title').html('');
+	 	$('.html_title').html('热门搜索');
 
 	}
 function search_click(ele,number){
@@ -68,6 +68,17 @@ function set_ajax(val,path_ajax){
 			$('.show_data').html(str);
 			$('.html_title').html('找到 \"'+val+'\" 相关结果'+str_head+'条')
         }
+    }else if(path_ajax=='3'){
+        //检验检查指标
+        obj_shumei['url']='/dev/search_medical_alias/';
+        obj_shumei['str_fun']=function(msg){
+        	$.each(msg['data']['data'], function(index, data) {
+				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(3,'+data["test_idx_id"]+')">'+data['test_idx_name']+'</div>';
+				str_head=Number(index)+1;
+        	});
+			$('.show_data').html(str);
+			$('.html_title').html('找到 \"'+val+'\" 相关结果'+str_head+'条')
+        }
     }
 	$.ajax({
 		url:obj_shumei['url'],
@@ -78,6 +89,9 @@ function set_ajax(val,path_ajax){
 }
 function get_xiangqign(id,list_id){
 	xiang_str="";
+	if(list_id==null){
+		return;
+	}
 	if(id=='0'){
 		// 医院详情
 		xiangqing['url']='/dev/search_hospital_dict/';
@@ -95,8 +109,8 @@ function get_xiangqign(id,list_id){
 				xiang_str+='<div class="text-left">'+data['hospital_address']+'</div>';
         	});
 			$('.yiyuan_xiang').html(xiang_str)
-			$('.yiyuan_xiang').slideDown(500);
-			$('.search_yiyuan').hide(500);
+			$('.yiyuan_xiang').slideDown(200);
+			$('.search_yiyuan').hide(200);
 		}
 	}else if (id=='1') {
 		// 疾病详情
@@ -111,8 +125,8 @@ function get_xiangqign(id,list_id){
 				xiang_str+='<div class="text-left">'+data['disease_icd']+'</div>';
         	});
 			$('.yiyuan_xiang').html(xiang_str)
-			$('.yiyuan_xiang').slideDown(500);
-			$('.search_yiyuan').slideUp(500);
+			$('.yiyuan_xiang').slideDown(200);
+			$('.search_yiyuan').slideUp(200);
 		}
 	}else if (id=='2') {
 		// 药品详情
@@ -139,8 +153,32 @@ function get_xiangqign(id,list_id){
 				xiang_str+='<div class="text-left">'+data['precautions']+'</div>';
         	});
 			$('.yiyuan_xiang').html(xiang_str);
-			$('.yiyuan_xiang').slideDown(500);
-			$('.search_yiyuan').slideUp(500);
+			$('.yiyuan_xiang').slideDown(200);
+			$('.search_yiyuan').slideUp(200);
+		}
+	}else if (id=='3') {
+		// 检查检验详情
+		xiangqing['url']='/dev/search_medical_dict/';
+		xiangqing['data']={id:list_id};
+		xiangqing['data_xiang']=function(msg){
+			$.each(msg['data']['data'], function(index, data) {
+				xiang_str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>';
+				xiang_str+='<div class="text-left">【指标名称】</div>';
+				xiang_str+='<div class="text-left">'+data['test_idx_name']+'</div>';
+				xiang_str+='<div class="text-left">【检验原理】</div>';
+				xiang_str+='<div class="text-left">'+data['testprinciple']+'</div>';
+				xiang_str+='<div class="text-left">【摘要】</div>';
+				xiang_str+='<div class="text-left">'+data['summary']+'</div>';
+				xiang_str+='<div class="text-left">【关联疾病】</div>';
+				xiang_str+='<div class="text-left">'+data['diseaserelated']+'</div>';
+				xiang_str+='<div class="text-left">【参考值】</div>';
+				xiang_str+='<div class="text-left">'+data['normalvaluedescription']+'</div>';
+				xiang_str+='<div class="text-left">【检验描述】</div>';
+				xiang_str+='<div class="text-left">'+data['testdescription']+'</div>';
+        	});
+			$('.yiyuan_xiang').html(xiang_str);
+			$('.yiyuan_xiang').slideDown(200);
+			$('.search_yiyuan').slideUp(200);
 		}
 	}
 	$.ajax({
@@ -151,9 +189,9 @@ function get_xiangqign(id,list_id){
 	})
 }
 function hide_true(){
-	$('.yiyuan_xiang').slideUp(500,function(){
+	$('.yiyuan_xiang').slideUp(200,function(){
 
-	$('.search_yiyuan').show(100);
+	$('.search_yiyuan').show();
 	});
 }
 function click_val(ele){
@@ -167,17 +205,18 @@ function samll_click(){
 var screenWidth=$(window).width();
 if(screenWidth>=768){
 	$('.l_list').removeClass('l_list_screen')
-	$('.l_list').css({'left':'0px'})
+	$('.l_list').css({'left':'0px'});
+	$('.switch_img').attr('src','');
 	}
 window.onresize=function(){
 	var screenWidth=$(window).width();
 	if(screenWidth>=768){
 		$('.l_list').removeClass('l_list_screen');
 		$('.l_list').css({'left':'0px'})
-		console.log(121212)
+		$('.switch_img').attr('src','');
 	}else{
-		console.log(10000000)
 		$('.l_list').addClass('l_list_screen');
 		$('.l_list').css({'left':'-210px'})
+		$('.switch_img').attr('src','/static/img/tab_list.png');
 	}
 }
