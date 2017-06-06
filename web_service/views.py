@@ -9,6 +9,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import json
 from .models import *
+from django.db.models import Q
 
 def index(request):
     
@@ -86,13 +87,13 @@ def search_disease(request):
         return get_json_response(request, dict(status='error', message='name not found.', data=None))
 
     dis_list = []
-    disease = MedicalDisease.objects.filter(disease_icd_cn__icontains = name)
+    disease = MedicalTestDisease.objects.filter(disease_name__icontains = name)
     for _ in disease:
-        disease_id = _.disease_id
-        disease_icd_cn = _.disease_icd_cn
+        disease_id = _.id
+        disease_name = _.disease_name
         dis_data = {
             'disease_id':disease_id,
-            'disease_icd_cn':disease_icd_cn
+            'disease_name':disease_name
         }
         dis_list.append(dis_data)
     rst_data = {
@@ -110,25 +111,89 @@ def search_disease_dict(request):
         return get_json_response(request, dict(status='error', message='disease_id not found.', data=None))
 
     dis_list = []
-    disease = MedicalDisease.objects.filter(disease_id = disease_id)
+    disease = MedicalTestDisease.objects.filter(id = disease_id)
     for _ in disease:
-        disease_id = _.disease_id
-        disease_icd = _.disease_icd
-        disease_icd_cn = _.disease_icd_cn
-        disease_icd_en = _.disease_icd_en
-        disease_icd_cn_shorthand = _.disease_icd_cn_shorthand
+        disease_id = _.id
+        category_name = _.category_name
+        child_name = _.child_name
+        disease_name = _.disease_name
+        disease_alias_name = _.disease_alias_name
+        disease_summary = _.disease_summary
+        department_name = _.department_name
+        symptom_name = _.symptom_name
+        susceptible_population = _.susceptible_population
+        mode_of_infection = _.mode_of_infection
+        therapy_name = _.therapy_name
+        drug_name = _.drug_name
+        about_disease_name = _.about_disease_name
+        inspect_name = _.inspect_name
+
         dis_data = {
             'disease_id':disease_id,
-            'disease_icd':disease_icd,
-            'disease_icd_cn':disease_icd_cn,
-            'disease_icd_en':disease_icd_en,
-            'disease_icd_cn_shorthand':disease_icd_cn_shorthand
+            'category_name':category_name,
+            'child_name':child_name,
+            'disease_name':disease_name,
+            'disease_alias_name':disease_alias_name,
+            'disease_summary':disease_summary,
+            'department_name':department_name,
+            'symptom_name':symptom_name,
+            'susceptible_population':susceptible_population,
+            'mode_of_infection':mode_of_infection,
+            'therapy_name':therapy_name,
+            'drug_name':drug_name,
+            'about_disease_name':about_disease_name,
+            'inspect_name':inspect_name
         }
         dis_list.append(dis_data)
     rst_data = {
         "data":dis_list
     }
     return get_json_response(request, dict(status='1', message='ok', data=rst_data))
+
+
+##疾病药物详情
+
+def search_Drugs_dict_test(request):
+    if request.method != 'POST':
+            return get_json_response(request, dict(status='error', message='only POST method supported.', data=None))
+    name = request.POST.get('name',None)
+    if not name:
+        return get_json_response(request, dict(status='error', message='name not found.', data=None))
+
+    drugs_list = []
+    drugs = RefDrugDict.objects.filter(Q(cnname__contains = name)|Q(commonname__contains = name))
+    for _ in drugs:
+        id = _.id
+        cnname = _.cnname
+        commonname = _.commonname
+        engname = _.engname
+        showname = _.showname
+        component = _.component
+        indication = _.indication
+        dosage = _.dosage
+        contraindications = _.contraindications
+        precautions = _.precautions
+        adverseReactions = _.adversereactions
+        drugInteractions = _.druginteractions
+        drugs_data = {
+            'id':id,
+            'cnname':cnname,
+            'commonname':commonname,
+            'engname':engname,
+            'showname':showname,
+            'component':component,
+            'indication':indication,
+            'dosage':dosage,
+            'contraindications':contraindications,
+            'precautions':precautions,
+            'adverseReactions':adverseReactions,
+            'drugInteractions':drugInteractions
+        }
+        drugs_list.append(drugs_data)
+    rst_data = {
+        "data":drugs_list
+    }
+    return get_json_response(request, dict(status='1', message='ok', data=rst_data)) 
 
 ## 药品别名表查询
 def search_Drugs_alias(request):

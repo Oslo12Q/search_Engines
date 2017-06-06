@@ -31,6 +31,27 @@ class DjangoMigrations(models.Model):
         db_table = 'django_migrations'
 
 
+class MedicalTestDisease(models.Model):
+    id = models.IntegerField(primary_key=True)
+    category_name = models.CharField(max_length=255, blank=True, null=True)
+    child_name = models.CharField(max_length=255, blank=True, null=True)
+    disease_name = models.CharField(max_length=255, blank=True, null=True)
+    disease_alias_name = models.CharField(max_length=255, blank=True, null=True)
+    disease_summary = models.TextField(blank=True, null=True)
+    department_name = models.CharField(max_length=255, blank=True, null=True)
+    symptom_name = models.CharField(max_length=255, blank=True, null=True)
+    susceptible_population = models.CharField(max_length=255, blank=True, null=True)
+    mode_of_infection = models.CharField(max_length=255, blank=True, null=True)
+    therapy_name = models.CharField(max_length=255, blank=True, null=True)
+    drug_name = models.CharField(max_length=255, blank=True, null=True)
+    about_disease_name = models.CharField(max_length=255, blank=True, null=True)
+    inspect_name = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'medical__test_disease'
+
+
 class MedicalDisease(models.Model):
     disease_id = models.IntegerField(primary_key=True)
     disease_icd = models.CharField(max_length=255, blank=True, null=True)
@@ -77,6 +98,8 @@ class MedicalTestCatagoryDict(models.Model):
 class MedicalTestHospital(models.Model):
     hospital_id = models.BigIntegerField(primary_key=True)
     hospital_idx_id = models.BigIntegerField(blank=True, null=True)
+    hospital_province = models.CharField(max_length=255, blank=True, null=True)
+    hospital_city = models.CharField(max_length=255, blank=True, null=True)
     hospital_name = models.CharField(max_length=255, blank=True, null=True)
     hospital_address = models.CharField(max_length=255, blank=True, null=True)
     hospital_level = models.CharField(max_length=255, blank=True, null=True)
