@@ -42,6 +42,9 @@ function set_ajax(val,path_ajax){
 				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(0,'+data["hospital_idx_id"]+')">'+data['test_hospital_name']+'</div>'
         		str_head=Number(index)+1
         	});
+        	if(str_head==''){
+        		str_head=0;
+        	}
 			$('.html_title').html('找到 \"'+val+'\" 相关结果'+str_head+'条')
 			$('.show_data').html(str)
 			$('.clear_padding').hide()
@@ -51,9 +54,12 @@ function set_ajax(val,path_ajax){
         obj_shumei['url']='/dev/search_disease/';
         obj_shumei['str_fun']=function(msg){
         	$.each(msg['data']['data'], function(index, data) {
-				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(1,'+data["disease_id"]+')">'+data['disease_icd_cn']+'</div>';
+				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(1,'+data["disease_id"]+')">'+data['disease_name']+'</div>';
 				str_head=Number(index)+1;
         	});
+        	if(str_head==''){
+        		str_head=0;
+        	}
 			$('.show_data').html(str);
 			$('.html_title').html('找到 \"'+val+'\" 相关结果'+str_head+'条')
         }
@@ -65,6 +71,9 @@ function set_ajax(val,path_ajax){
 				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(2,'+data["drug_id"]+')">'+data['drug_common_name']+'</div>';
 				str_head=Number(index)+1;
         	});
+        	if(str_head==''){
+        		str_head=0;
+        	}
 			$('.show_data').html(str);
 			$('.html_title').html('找到 \"'+val+'\" 相关结果'+str_head+'条')
         }
@@ -76,6 +85,9 @@ function set_ajax(val,path_ajax){
 				str+='<div class="text-left yiyuan_style" onclick="get_xiangqign(3,'+data["test_idx_id"]+')">'+data['test_idx_name']+'</div>';
 				str_head=Number(index)+1;
         	});
+        	if(str_head==''){
+        		str_head=0;
+        	}
 			$('.show_data').html(str);
 			$('.html_title').html('找到 \"'+val+'\" 相关结果'+str_head+'条')
         }
@@ -84,6 +96,7 @@ function set_ajax(val,path_ajax){
 		url:obj_shumei['url'],
 		type:"POST",
 		data:{name:val},
+		cache:false,
 		success:obj_shumei.str_fun
 	})
 }
@@ -118,11 +131,30 @@ function get_xiangqign(id,list_id){
 		xiangqing['data']={disease_id:list_id};
 		xiangqing['data_xiang']=function(msg){
 			$.each(msg['data']['data'], function(index, data) {
+				var drugs=data['drug_name'].split(' ');
 				xiang_str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>'
 				xiang_str+='<div class="text-left">【疾病名称】</div>';
-				xiang_str+='<div class="text-left">'+data['disease_icd_cn']+'</div>';
-				xiang_str+='<div class="text-left">【ICD编码】</div>';
-				xiang_str+='<div class="text-left">'+data['disease_icd']+'</div>';
+				xiang_str+='<div class="text-left">'+data['disease_name']+'</div>';
+				xiang_str+='<div class="text-left">【疾病描述】</div>';
+				xiang_str+='<div class="text-left">'+data['disease_summary']+'</div>';
+				xiang_str+='<div class="text-left">【就诊科室】</div>';
+				xiang_str+='<div class="text-left">'+data['department_name']+'</div>';
+				xiang_str+='<div class="text-left">【症状】</div>';
+				xiang_str+='<div class="text-left">'+data['symptom_name']+'</div>';
+				xiang_str+='<div class="text-left">【易感人群】</div>';
+				xiang_str+='<div class="text-left">'+data['mode_of_infection']+'</div>';
+				xiang_str+='<div class="text-left">【感染方式】</div>';
+				xiang_str+='<div class="text-left">'+data['susceptible_population']+'</div>';
+				xiang_str+='<div class="text-left">【治疗方式】</div>';
+				xiang_str+='<div class="text-left">'+data['therapy_name']+'</div>';
+				xiang_str+='<div class="text-left">【药物名称】<span style="font-size:12px;color:#999;">*点击获取药品详情*</span></div>';
+				$.each(drugs,function(index100,data100){
+					xiang_str+='<div class="text-left" onclick="getDrug(this)">'+data100+'</div>'
+				})
+				xiang_str+='<div class="text-left">【相关疾病】</div>';
+				xiang_str+='<div class="text-left">'+data['about_disease_name']+'</div>';
+				xiang_str+='<div class="text-left">【检查】</div>';
+				xiang_str+='<div class="text-left">'+data['inspect_name']+'</div>';
         	});
 			$('.yiyuan_xiang').html(xiang_str)
 			$('.yiyuan_xiang').slideDown(200);
@@ -188,6 +220,23 @@ function get_xiangqign(id,list_id){
 		success:xiangqing.data_xiang
 	})
 }
+function getDrug(ele){
+	xiang_str="";
+	var keyword_drug=$(ele).text();
+	$.ajax({
+		url:'/dev/search_Drugs_alias/',
+		data:{name:keyword_drug},
+		type:"POST",
+		success:function(data){
+			$.each(msg['data']['data'], function(index, data) {
+				str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>';
+				str+='<div class="text-left" style="clear:top;padding:15px 0px;" onclick="get_xiangqign(2,'+data["drug_id"]+')">'+data['drug_common_name']+'</div>';	
+        	});
+        	$('.yiyuan_xiang').html(str);
+		}
+	})	
+}
+
 function hide_true(){
 	$('.yiyuan_xiang').slideUp(200,function(){
 
