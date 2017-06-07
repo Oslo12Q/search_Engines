@@ -221,14 +221,14 @@ function get_xiangqign(id,list_id){
 	})
 }
 function getDrug(ele){
-	xiang_str="";
+	str="";
 	var keyword_drug=$(ele).text();
 	$.ajax({
 		url:'/dev/search_Drugs_alias/',
 		data:{name:keyword_drug},
 		type:"POST",
 		success:function(data){
-			$.each(msg['data']['data'], function(index, data) {
+			$.each(data['data']['data'], function(index, data) {
 				str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>';
 				str+='<div class="text-left" style="clear:top;padding:15px 0px;" onclick="get_xiangqign(2,'+data["drug_id"]+')">'+data['drug_common_name']+'</div>';	
         	});
