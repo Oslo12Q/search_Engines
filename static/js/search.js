@@ -166,6 +166,12 @@ function get_xiangqign(id,list_id){
 		xiangqing['url']='/dev/search_Drugs_dict/';
 		xiangqing['data']={drug_id:list_id};
 		xiangqing['data_xiang']=function(msg){
+			if(msg['data']['data']==''){
+				$('.yiyuan_xiang').html('找不到该药品的详细信息！');
+				$('.yiyuan_xiang').slideDown(200);
+				$('.search_yiyuan').slideUp(200);
+				return;
+			}
 			$.each(msg['data']['data'], function(index, data) {
 				xiang_str+='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>';
 				xiang_str+='<div class="text-left">【药品名称】</div>';
