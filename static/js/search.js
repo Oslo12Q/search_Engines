@@ -236,6 +236,9 @@ function getDrug(ele){
 		data:{name:keyword_drug},
 		type:"POST",
 		success:function(data){
+			if(data['data']['data']==''){
+				return;
+			}
 			$.each(data['data']['data'], function(index, data) {
 				title='<span class="span_float" onclick="hide_true()" title="关闭">关闭</span>';
 				str+='<div class="text-left" style="clear:top;padding:15px 0px;" onclick="get_xiangqign(2,'+data["drug_id"]+')">'+data['drug_common_name']+'</div>';	
