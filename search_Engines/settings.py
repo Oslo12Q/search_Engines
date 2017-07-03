@@ -88,8 +88,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'medical_basic',
         'USER': 'lzq',
-        'PASSWORD': '127.0.0.1',
-        'HOST': 'nevKav6G',
+        'PASSWORD': 'nevKav6G',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 
